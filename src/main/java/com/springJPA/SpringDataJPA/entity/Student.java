@@ -3,6 +3,7 @@ package com.springJPA.SpringDataJPA.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +14,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "tbl_student")
+@Table(name = "tbl_student",
+        uniqueConstraints = @UniqueConstraint(
+                name = "emailid_unique",
+                columnNames = "email_address"
+        )
+
+        )
 public class Student {
 
     @Id
@@ -35,12 +42,13 @@ public class Student {
 
     @Email
     @Column(name = "email_address")
+    @NotNull
     private String emailId;
 
     @Column(name = "guardian_name")
     private String guardianName;
 
-    @Column(name = "guardian_Email_address")
+    @Column(name = "guardian_email_address")
     private String guardianEmail;
 
     @Column(name = "gurdian_Mobile_no")

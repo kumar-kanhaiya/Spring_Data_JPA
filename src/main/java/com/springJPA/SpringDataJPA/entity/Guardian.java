@@ -1,7 +1,6 @@
 package com.springJPA.SpringDataJPA.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -10,20 +9,36 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.NumberFormat;
 
-@Entity
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Embeddable
+@AttributeOverrides(
+        {
+                @AttributeOverride(
+                        name = "Name",
+                        column = @Column(name = "guardianName")
+                ) ,
+                @AttributeOverride(
+                        name = "Email",
+                        column = @Column(name = "gurdianEmail")
+                )
+                ,
+                @AttributeOverride(
+                        name = "Mobile",
+                        column = @Column(name = "gurdianMobile")
+                )
+        }
+)
 public class Guardian {
 
-    @Id
-    private String name ;
 
-    @Email(message = "please insert proper emailID")
-    private String email;
+    private String Name;
 
-    @NotNull
-    @NumberFormat
-    @Positive
-    private long mobile_no;
+
+    private String Email;
+
+
+    private String Mobile;
 }

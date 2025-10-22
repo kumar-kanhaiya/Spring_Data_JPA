@@ -21,6 +21,7 @@ import lombok.NoArgsConstructor;
         )
 
         )
+
 public class Student {
 
     @Id
@@ -45,13 +46,8 @@ public class Student {
     @NotNull
     private String emailId;
 
-    @Column(name = "guardian_name")
-    private String guardianName;
+    @Embedded
+    private Guardian guardian;
 
-    @Column(name = "guardian_email_address")
-    private String guardianEmail;
-
-    @Column(name = "gurdian_Mobile_no")
-    private String guardianMobile;
 
 }

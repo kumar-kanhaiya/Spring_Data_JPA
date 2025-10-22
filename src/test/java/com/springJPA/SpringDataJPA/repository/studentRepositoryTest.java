@@ -34,7 +34,9 @@ class studentRepositoryTest {
 
     @Test
     public void printAllStudent(){
-
+        List<Student> studentList =
+                studentRepository.findAll();
+        System.out.println("StudentList : " + studentList);
     }
 
 }

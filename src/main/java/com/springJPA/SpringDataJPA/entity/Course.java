@@ -32,4 +32,9 @@ public class Course {
 
     @NotNull
     private Integer credit;
+
+    @OneToOne(
+            mappedBy = "course"
+    )
+    private CourseMaterial courseMaterial;
 }

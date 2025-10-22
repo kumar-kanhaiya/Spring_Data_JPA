@@ -28,11 +28,14 @@ public class CourseMaterial {
     private long courseMaterialId;
 
     @NotBlank(message = "url cannot be empty")
-    @URL(message = "invalid url formate")
-    @Column(nullable = false , length = 2083)
     private String url;
 
-    @OneToOne
+
+    @OneToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            optional = false
+    )
     @JoinColumn(
             name = "course_id",
             referencedColumnName = "courseId"

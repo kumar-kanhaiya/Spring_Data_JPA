@@ -25,7 +25,6 @@ import lombok.NoArgsConstructor;
 public class Student {
 
     @Id
-    @Column(name = "student_id")
     @SequenceGenerator(
             name = "student_sequence",
             sequenceName = "student_sequence",
@@ -48,6 +47,8 @@ public class Student {
 
     @Embedded
     private Guardian guardian;
+
+
 
 
 }

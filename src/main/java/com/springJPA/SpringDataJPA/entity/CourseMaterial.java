@@ -3,10 +3,7 @@ package com.springJPA.SpringDataJPA.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.validator.constraints.URL;
 
 @Entity
@@ -14,6 +11,7 @@ import org.hibernate.validator.constraints.URL;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString(exclude = "course")
 public class CourseMaterial {
 
     @Id
